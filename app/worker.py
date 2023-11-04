@@ -4,6 +4,7 @@ from stably_discordant_worker import utils
 from stably_discordant_worker.diffuser import Diffuser
 import json
 import base64
+import socket
 
 logger = utils.setup_logger()
 
@@ -13,6 +14,7 @@ def loop(host_ip: str, host_port: str):
     context = zmq.Context()
     sock = context.socket(zmq.DEALER)
     sock.connect(f"tcp://{host_ip}:{host_port}")
+    hostname = socket.gethostname()
 
     logger.info('Initializing Diffuser')
     diffuser = Diffuser()
@@ -35,6 +37,7 @@ def loop(host_ip: str, host_port: str):
             'type': 'OUTPUT',
             'image_data': image_data_base64,
             'id_num': id_num,
+            'hostname': hostname
         }
         payload = json.dumps(message).encode('utf-8')
         sock.send(payload)
