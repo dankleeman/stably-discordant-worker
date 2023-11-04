@@ -21,7 +21,7 @@ def loop(host_ip: str, host_port: str):
 
     while True:
         logger.info('Sending READY to host.')
-        sock.send(json.dumps({'type': 'READY'}).encode('utf-8'))
+        sock.send(json.dumps({'type': 'READY', 'hostname': hostname}).encode('utf-8'))
 
         work_unit = json.loads(sock.recv().decode('utf-8'))
         logger.info('Work unit received: %s', work_unit)
