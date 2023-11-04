@@ -2,7 +2,7 @@ import logging
 import torch
 from diffusers import StableDiffusionPipeline  # type: ignore
 import secrets
-from stable_discord.config import config
+from stably_discordant_worker.config import config
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +53,6 @@ class Diffuser:  # pylint: disable=too-few-public-methods
 
         image = self.pipeline(prompt=prompt, guidance_scale=cfg, num_inference_steps=steps).images[0]
         image_nonce = secrets.token_hex(16)
-        file_path = f"{config['output_img_dir']}/img_{image_nonce}.png"
+        file_path = f"output_images/img_{image_nonce}.png"
         image.save(file_path)
         return file_path

@@ -1,6 +1,6 @@
 import tomli
 
-with open("config.toml", "rb") as f:
+with open("../config.toml", "rb") as f:
     config = tomli.load(f)
 
 if config["auth"]["discord_token"] == "XXXX":
