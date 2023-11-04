@@ -8,6 +8,7 @@ packages = [{include = "stably_discordant_worker"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+zmq = "^0.0.0"
 
 
 [build-system]
