@@ -1,5 +1,5 @@
-PROJECT=stably_discordant_server
-SOURCE_OBJECTS=app stably_discordant_server
+PROJECT=stably_discordant_worker
+SOURCE_OBJECTS=app stably_discordant_worker
 
 format.check:
 	poetry run ruff format --check ${SOURCE_OBJECTS}
