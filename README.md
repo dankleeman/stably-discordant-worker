@@ -27,6 +27,15 @@ Stably Discordant Worker may be started by running the `worker.py` file in the `
 2. `--host-port` - provide the port for the control server. Defaults to `5556`.
 
 **Note: Keep in mind that regular networking rules apply. If the server process is running on a local network and not all of the client machines are on that local network then some basic port forwarding may be in order.**
+## Configuration with config.toml
+Stably Discordant Worker is intended to localize all changes in the config.toml file.
+
+### \[diffuser.settings\]
+- `use_gpu` - A boolean flag indicating if the diffusion model should expect to use a GPU for accelerated processing. Defaults to `True`.
+- `use_half_precision` - A boolean flag indicating if the diffusion model should use half precision floating point numbers. This will improve speed while reducing image quality. Defaults to `True`.
+- `enable_xformers_attention` - A boolean flag indicating if the diffusion model should use the [xFormers](https://github.com/facebookresearch/xformers) library for accelerated attention. Defaults to `True`.
+### \[misc_settings\]
+- `log_dir`  - A path to the desired logging directory. Defaults to `logs`
 
 ## Contributing
 This repository is open for use or to be forked freely. I intend to get Stably Discordant Worker to a stable state and leave it there, but I will consider contributions in the unlikely event they are provided.
