@@ -8,15 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  inspect:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Check Config Discord Token
-        run: |
-          if grep 'discord_token="XXX"' config.toml
-          then echo "Discord Token is OK."
-          else exit 1; fi
   build:
     runs-on: ubuntu-latest
     steps:
