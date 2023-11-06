@@ -1,0 +1,8 @@
+[diffuser.settings]
+use_gpu = true
+use_half_precison = true
+enable_xformers_attention = true
+
+[misc_settings]
+log_dir = "logs"
+output_image_dir = "output_images"
